@@ -49,7 +49,9 @@ public class SVGView: UIView {
         backgroundColor = UIColor.clear
         webView.scrollView.backgroundColor = UIColor.clear
         webView.scrollView.isScrollEnabled = false
-        
+        if #available(iOS 11.0, *) {
+            webView.scrollView.contentInsetAdjustmentBehavior = .never
+        }
         webView.loadHTMLString(loader.html, baseURL: nil)
     }
 
